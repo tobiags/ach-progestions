@@ -17,11 +17,17 @@
     --border-neon: rgba(222, 248, 104, 0.3);
   }
 
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
   body {
     background-color: #FFFFFF;
     color: #0F172A;
     font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     overflow-x: hidden;
+    width: 100%;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -69,12 +75,12 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0c0c0c;
+  background: #f8fafc;
 }
 ::-webkit-scrollbar-thumb {
-  background: #27272a;
+  background: #cbd5e1;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #def868;
+  background: #5E1449;
 }

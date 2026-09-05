@@ -23,11 +23,11 @@ export const LandingPage: React.FC = () => {
   const closeContact = () => setContactModalOpen(false);
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-[#FF6B00]/20 selection:text-[#5E1449] antialiased">
+    <div className="min-h-screen w-full overflow-x-hidden bg-white text-slate-900 font-sans selection:bg-[#FF6B00]/20 selection:text-[#5E1449] antialiased">
       {/* 1. Header / Navbar */}
       <Navbar onOpenContact={openContact} />
 
-      <main>
+      <main className="w-full overflow-x-hidden">
         {/* 2. Hero Section */}
         <HeroSection onOpenContact={openContact} />
 

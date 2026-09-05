@@ -21,6 +21,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
+
   const navLinks = [
     { label: "Services", href: "#services" },
     { label: "Méthode", href: "#methode" },
@@ -33,10 +45,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
     <>
       {/* Floating Fluid Island Nav (Soft-Skill Directive) */}
       <header
-        className={`fixed top-4 sm:top-6 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-5xl rounded-full transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] ${
+        className={`fixed top-3 sm:top-6 left-1/2 -translate-x-1/2 z-50 w-[94%] sm:w-[92%] max-w-5xl rounded-full transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] ${
           isScrolled
-            ? "bg-white/85 backdrop-blur-2xl py-2.5 px-4 sm:px-6 shadow-[0_16px_40px_-12px_rgba(0,0,0,0.1)] border border-slate-200/80 ring-1 ring-slate-900/5"
-            : "bg-white/90 backdrop-blur-xl py-3 px-5 sm:px-7 shadow-[0_8px_30px_-8px_rgba(0,0,0,0.06)] border border-slate-200/60"
+            ? "bg-white/90 backdrop-blur-2xl py-2 px-3.5 sm:py-2.5 sm:px-6 shadow-[0_16px_40px_-12px_rgba(0,0,0,0.1)] border border-slate-200/80 ring-1 ring-slate-900/5"
+            : "bg-white/95 backdrop-blur-xl py-2.5 px-4 sm:py-3 sm:px-7 shadow-[0_8px_30px_-8px_rgba(0,0,0,0.06)] border border-slate-200/60"
         }`}
       >
         <div className="flex items-center justify-between">
@@ -73,7 +85,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
           <div className="flex md:hidden items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="relative w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-800 transition-colors cursor-pointer"
+              className="relative w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-slate-100/90 active:bg-slate-200 flex items-center justify-center text-slate-800 transition-colors cursor-pointer"
               aria-label={mobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
             >
               <div className="w-4 h-3.5 flex flex-col justify-between items-center relative">
@@ -100,14 +112,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
 
       {/* Full-Screen Glass Mobile Overlay with Staggered Links */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-slate-950/80 backdrop-blur-2xl flex flex-col justify-between p-8 pt-28 animate-in fade-in duration-300 md:hidden">
-          <nav className="flex flex-col space-y-5">
+        <div className="fixed inset-0 z-40 bg-slate-950/90 backdrop-blur-2xl flex flex-col justify-between p-6 sm:p-8 pt-24 sm:pt-28 min-h-[100dvh] overflow-y-auto animate-in fade-in duration-300 md:hidden">
+          <nav className="flex flex-col space-y-4 sm:space-y-5 my-auto">
             {navLinks.map((link, idx) => (
               <Link
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-2xl font-black text-white hover:text-[#FF6B00] transition-colors"
+                className="text-2xl sm:text-3xl font-black text-white hover:text-[#FF6B00] transition-colors py-1"
                 style={{ animationDelay: `${idx * 60}ms` }}
               >
                 {link.label}

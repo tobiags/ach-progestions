@@ -87,61 +87,61 @@ export const ExpertisesSection: React.FC = () => {
   ];
 
   return (
-    <section id="services" className="py-28 md:py-36 bg-white scroll-mt-20">
+    <section id="services" className="py-16 sm:py-24 md:py-36 bg-white scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F7EEF4] border border-[#5E1449]/15 text-[#5E1449] font-bold text-[10px] uppercase tracking-[0.2em] mb-4 shadow-2xs">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 md:mb-20">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F7EEF4] border border-[#5E1449]/15 text-[#5E1449] font-bold text-[10px] uppercase tracking-[0.2em] mb-3.5 sm:mb-4 shadow-2xs">
             <span>NOS SERVICES D&apos;EXCELLENCE</span>
           </div>
           
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight [text-wrap:balance]">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight [text-wrap:balance]">
             6 expertises pour soutenir votre croissance
           </h2>
-          <div className="w-12 h-1 bg-[#FF6B00] rounded-full mx-auto mt-5" />
+          <div className="w-12 h-1 bg-[#FF6B00] rounded-full mx-auto mt-4 sm:mt-5" />
         </div>
 
         {/* 6 Double-Bezel Cards Grid (3x2) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
           {expertises.map((item) => {
             const Icon = item.icon;
             return (
               /* Outer Shell */
               <div
                 key={item.title}
-                className={`p-2 rounded-[2rem] bg-slate-900/[0.02] ring-1 ring-slate-900/5 transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1.5 ${item.shellHover}`}
+                className={`p-1.5 sm:p-2 rounded-[1.75rem] sm:rounded-[2rem] bg-slate-900/[0.02] ring-1 ring-slate-900/5 transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1.5 ${item.shellHover}`}
               >
                 {/* Inner Core */}
-                <div className="rounded-[calc(2rem-0.5rem)] bg-white p-7 sm:p-8 h-full flex flex-col justify-between border border-slate-100 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9)] group">
+                <div className="rounded-[calc(1.75rem-0.375rem)] sm:rounded-[calc(2rem-0.5rem)] bg-white p-5 sm:p-7 md:p-8 h-full flex flex-col justify-between border border-slate-100 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9)] group">
                   <div>
-                    <div className="flex items-center justify-between mb-6">
+                    <div className="flex items-center justify-between gap-3 mb-5 sm:mb-6">
                       {/* Dual Visual Container: Kitbitz Hand-drawn Art + Lucide Glyph */}
-                      <div className="relative">
+                      <div className="relative shrink-0">
                         <div
-                          className={`w-16 h-16 rounded-2xl ${item.iconBg} flex items-center justify-center p-2.5 group-hover:scale-110 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] shadow-2xs border border-slate-100`}
+                          className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl ${item.iconBg} flex items-center justify-center p-2 sm:p-2.5 group-hover:scale-110 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] shadow-2xs border border-slate-100`}
                         >
                           <Image
                             src={item.kitbitzImage}
                             alt={item.kitbitzAlt}
-                            width={42}
-                            height={42}
-                            className="object-contain drop-shadow-xs group-hover:rotate-6 transition-transform duration-500"
+                            width={38}
+                            height={38}
+                            className="w-8 h-8 sm:w-10 sm:h-10 object-contain drop-shadow-xs group-hover:rotate-6 transition-transform duration-500"
                           />
                         </div>
-                        <div className={`absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-white shadow-xs border border-slate-100 flex items-center justify-center ${item.iconColor}`}>
-                          <Icon className="w-3 h-3 stroke-[2.5]" />
+                        <div className={`absolute -bottom-1 -right-1 w-5.5 h-5.5 sm:w-6 sm:h-6 rounded-full bg-white shadow-xs border border-slate-100 flex items-center justify-center ${item.iconColor}`}>
+                          <Icon className="w-2.5 h-2.5 sm:w-3 sm:h-3 stroke-[2.5]" />
                         </div>
                       </div>
 
                       {/* Category Pill */}
-                      <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400 bg-slate-50 border border-slate-100 px-3 py-1 rounded-full">
+                      <span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-wider text-slate-500 bg-slate-50 border border-slate-100 px-2.5 sm:px-3 py-1 rounded-full text-right shrink-0">
                         {item.category}
                       </span>
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-[#5E1449] transition-colors [text-wrap:balance]">
+                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2.5 sm:mb-3 group-hover:text-[#5E1449] transition-colors [text-wrap:balance]">
                       {item.title}
                     </h3>
 
@@ -152,7 +152,7 @@ export const ExpertisesSection: React.FC = () => {
                   </div>
 
                   {/* Bottom Indicator */}
-                  <div className="mt-8 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-400 group-hover:text-[#5E1449] transition-colors">
+                  <div className="mt-6 sm:mt-8 pt-3.5 sm:pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-400 group-hover:text-[#5E1449] transition-colors">
                     <span>Intervention sous 48h</span>
                     <div className="w-7 h-7 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-[#FFF3EB] group-hover:text-[#FF6B00] transition-colors">
                       <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

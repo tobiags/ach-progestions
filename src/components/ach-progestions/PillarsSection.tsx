@@ -43,11 +43,11 @@ export const PillarsSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 md:py-32 bg-[#FAF9F7] relative">
+    <section className="py-14 sm:py-20 md:py-32 bg-[#FAF9F7] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Concentric Double-Bezel 3-Pillar Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
           {pillars.map((pillar) => {
             const Icon = pillar.icon;
             const isOrange = pillar.color === "orange";
@@ -55,18 +55,18 @@ export const PillarsSection: React.FC = () => {
               /* Outer Shell */
               <div
                 key={pillar.title}
-                className={`p-2 rounded-[2.25rem] transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1.5 ${
+                className={`p-1.5 sm:p-2 rounded-[1.75rem] sm:rounded-[2.25rem] transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1.5 ${
                   isOrange
                     ? "bg-[#FFF3EB]/40 ring-1 ring-[#FF6B00]/15 hover:shadow-[0_20px_45px_-12px_rgba(255,107,0,0.15)]"
                     : "bg-[#F7EEF4]/40 ring-1 ring-[#5E1449]/15 hover:shadow-[0_20px_45px_-12px_rgba(94,20,73,0.15)]"
                 }`}
               >
                 {/* Inner Core */}
-                <div className="rounded-[calc(2.25rem-0.5rem)] bg-white p-8 sm:p-9 h-full flex flex-col items-center text-center shadow-[inset_0_1px_1px_rgba(255,255,255,0.9)] border border-slate-100 group">
+                <div className="rounded-[calc(1.75rem-0.375rem)] sm:rounded-[calc(2.25rem-0.5rem)] bg-white p-6 sm:p-8 md:p-9 h-full flex flex-col items-center text-center shadow-[inset_0_1px_1px_rgba(255,255,255,0.9)] border border-slate-100 group">
                   
                   {/* Micro Badge */}
                   <span
-                    className={`inline-block px-3.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] mb-6 shadow-2xs ${
+                    className={`inline-block px-3 py-0.5 sm:px-3.5 sm:py-1 rounded-full text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em] mb-4 sm:mb-6 shadow-2xs ${
                       isOrange
                         ? "bg-[#FFF3EB] text-[#FF6B00] border border-[#FF6B00]/20"
                         : "bg-[#F7EEF4] text-[#5E1449] border border-[#5E1449]/20"
@@ -76,28 +76,28 @@ export const PillarsSection: React.FC = () => {
                   </span>
 
                   {/* Kitbitz Illustration Pod */}
-                  <div className="relative mb-6">
+                  <div className="relative mb-5 sm:mb-6">
                     <div
-                      className={`w-20 h-20 rounded-2xl ${pillar.iconBg} flex items-center justify-center p-3 group-hover:scale-110 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] shadow-xs border ${
+                      className={`w-16 h-16 sm:w-20 sm:h-20 rounded-2xl ${pillar.iconBg} flex items-center justify-center p-2.5 sm:p-3 group-hover:scale-110 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] shadow-xs border ${
                         isOrange ? "border-[#FF6B00]/15" : "border-[#5E1449]/15"
                       }`}
                     >
                       <Image
                         src={pillar.kitbitzImage}
                         alt={pillar.kitbitzAlt}
-                        width={52}
-                        height={52}
-                        className="object-contain drop-shadow-sm group-hover:rotate-3 transition-transform duration-500"
+                        width={46}
+                        height={46}
+                        className="w-10 h-10 sm:w-13 sm:h-13 object-contain drop-shadow-sm group-hover:rotate-3 transition-transform duration-500"
                       />
                     </div>
                     {/* Micro Lucide Floating Pill */}
-                    <div className={`absolute -bottom-1.5 -right-1.5 w-7 h-7 rounded-full bg-white shadow-md border border-slate-100 flex items-center justify-center ${pillar.iconColor}`}>
-                      <Icon className="w-3.5 h-3.5 stroke-[2.5]" />
+                    <div className={`absolute -bottom-1 -right-1 sm:-bottom-1.5 sm:-right-1.5 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white shadow-md border border-slate-100 flex items-center justify-center ${pillar.iconColor}`}>
+                      <Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5 stroke-[2.5]" />
                     </div>
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-2xl font-black text-slate-900 tracking-tight mb-3.5 [text-wrap:balance]">
+                  <h3 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight mb-2 sm:mb-3.5 [text-wrap:balance]">
                     {pillar.title}
                   </h3>
 
