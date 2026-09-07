@@ -1,24 +1,50 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, ShieldCheck, Sparkles, CheckCircle2, Star } from "lucide-react";
+import { useScrollCraft } from "./ScrollCraftProvider";
 
 interface HeroSectionProps {
   onOpenContact?: () => void;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact }) => {
+  const { scrollY, mousePos, isReducedMotion } = useScrollCraft();
+
   return (
-    <section className="relative overflow-hidden pt-28 pb-16 sm:pt-36 sm:pb-20 md:pt-44 md:pb-32 bg-gradient-to-b from-[#FAF8F5]/60 via-white to-white">
-      {/* Subtle Ethereal Ambient Radial Gradients */}
-      <div className="absolute -top-24 right-1/4 w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bg-[#5E1449]/[0.04] rounded-full blur-[80px] sm:blur-[100px] pointer-events-none" />
-      <div className="absolute top-1/2 left-4 w-[300px] sm:w-[450px] h-[300px] sm:h-[450px] bg-[#FF6B00]/[0.03] rounded-full blur-[80px] sm:blur-[100px] pointer-events-none" />
+    <section className="relative overflow-hidden pt-28 pb-16 sm:pt-36 sm:pb-20 md:pt-44 md:pb-32 bg-gradient-to-b from-[#FAF8F5]/70 via-white to-white">
+      {/* Dimensional Depth Plane 1: Atmospheric Ambient Radial Lights */}
+      <div 
+        className="absolute -top-24 right-1/4 w-[350px] sm:w-[520px] h-[350px] sm:h-[520px] bg-[#5E1449]/[0.05] rounded-full blur-[90px] sm:blur-[120px] pointer-events-none transition-transform duration-700 ease-out"
+        style={{
+          transform: !isReducedMotion 
+            ? `translate3d(${mousePos.x * 18}px, ${scrollY * 0.12 + mousePos.y * 18}px, 0)` 
+            : undefined,
+        }}
+      />
+      <div 
+        className="absolute top-1/2 left-4 w-[300px] sm:w-[480px] h-[300px] sm:h-[480px] bg-[#FF6B00]/[0.04] rounded-full blur-[90px] sm:blur-[120px] pointer-events-none transition-transform duration-700 ease-out"
+        style={{
+          transform: !isReducedMotion 
+            ? `translate3d(${mousePos.x * -14}px, ${scrollY * 0.08 + mousePos.y * -14}px, 0)` 
+            : undefined,
+        }}
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 lg:gap-14 items-center">
           
-          {/* Left Column: Focused Copy Stack */}
-          <div className="lg:col-span-7 flex flex-col items-start text-left">
+          {/* Dimensional Depth Plane 2: Focused Copy Stack */}
+          <div 
+            className="lg:col-span-7 flex flex-col items-start text-left transition-transform duration-300 ease-out"
+            style={{
+              transform: !isReducedMotion 
+                ? `translate3d(0, ${scrollY * -0.02}px, 0)` 
+                : undefined,
+            }}
+          >
             
             {/* Microscopic Eyebrow Badge */}
             <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1 rounded-full bg-[#F7EEF4] border border-[#5E1449]/15 text-[#5E1449] font-bold text-[9px] sm:text-[10px] uppercase tracking-[0.16em] sm:tracking-[0.2em] mb-4 sm:mb-6 shadow-2xs">
@@ -56,10 +82,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact }) => {
               </button>
 
               <Link
-                href="#services"
+                href="#simulateur"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 sm:py-4 rounded-full text-sm font-semibold text-[#5E1449] bg-white hover:bg-slate-50 border border-slate-200/90 shadow-xs hover:border-[#5E1449]/30 transition-all duration-300 hover:-translate-y-0.5 active:scale-[0.98]"
               >
-                <span>Découvrir nos services</span>
+                <span>Calculer mes heures gagnées</span>
               </Link>
             </div>
 
@@ -81,9 +107,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact }) => {
 
           </div>
 
-          {/* Right Column: "Double-Bezel" (Doppelrand) Hardware Architecture */}
+          {/* Dimensional Depth Plane 3 & 4: Hardware Double-Bezel Focal Subject + Tactile Foreground Elements */}
           <div className="lg:col-span-5 relative mt-4 lg:mt-0">
-            <div className="relative mx-auto max-w-md lg:max-w-none">
+            <div 
+              className="relative mx-auto max-w-md lg:max-w-none transition-transform duration-500 ease-out"
+              style={{
+                transform: !isReducedMotion
+                  ? `perspective(1000px) rotateY(${mousePos.x * 2.8}deg) rotateX(${-mousePos.y * 2.8}deg) translate3d(0, ${scrollY * -0.06}px, 0)`
+                  : undefined,
+              }}
+            >
               
               {/* Double-Bezel Outer Shell */}
               <div className="p-1.5 sm:p-2 rounded-[2rem] sm:rounded-[2.5rem] bg-slate-900/[0.03] ring-1 ring-slate-900/5 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.08)]">
@@ -137,8 +170,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact }) => {
                 </div>
               </div>
 
-              {/* Floating Performance Pill: Responsive on Mobile & Desktop */}
-              <div className="absolute -bottom-4 sm:-bottom-5 left-2 right-2 sm:left-auto sm:right-auto sm:-left-6 bg-white/95 backdrop-blur-xl rounded-2xl p-2.5 sm:p-3.5 shadow-xl border border-slate-200/80 flex items-center gap-3 transition-transform duration-500 hover:scale-105 z-20">
+              {/* Dimensional Depth Plane 4: Floating Performance Pill with Separate Parallax Rate */}
+              <div 
+                className="absolute -bottom-4 sm:-bottom-5 left-2 right-2 sm:left-auto sm:right-auto sm:-left-6 bg-white/95 backdrop-blur-xl rounded-2xl p-2.5 sm:p-3.5 shadow-xl border border-slate-200/80 flex items-center gap-3 transition-all duration-300 hover:scale-105 z-30"
+                style={{
+                  transform: !isReducedMotion
+                    ? `translate3d(${mousePos.x * 10}px, ${scrollY * -0.12 + mousePos.y * 10}px, 0)`
+                    : undefined,
+                }}
+              >
                 <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-[#5E1449] to-[#3B072D] flex items-center justify-center p-1.5 shadow-xs shrink-0">
                   <Image
                     src="/images/kitbitz/kitbitz-clock.svg"
@@ -154,8 +194,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact }) => {
                 </div>
               </div>
 
-              {/* Kitbitz Hand-Drawn Office Plant Accent (Top-Right Floating) */}
-              <div className="absolute -top-5 -right-2 sm:-top-7 sm:-right-6 w-14 h-14 sm:w-20 sm:h-20 pointer-events-none z-20 drop-shadow-lg transition-transform duration-700 hover:rotate-6">
+              {/* Dimensional Depth Plane 4: Kitbitz Hand-Drawn Monstera Accent with Distinct Parallax */}
+              <div 
+                className="absolute -top-5 -right-2 sm:-top-7 sm:-right-6 w-14 h-14 sm:w-20 sm:h-20 pointer-events-none z-30 drop-shadow-lg transition-transform duration-500"
+                style={{
+                  transform: !isReducedMotion
+                    ? `translate3d(${mousePos.x * -12}px, ${scrollY * -0.15 + mousePos.y * -12}px, 0) rotate(${mousePos.x * 6}deg)`
+                    : undefined,
+                }}
+              >
                 <Image
                   src="/images/kitbitz/kitbitz-monstera.svg"
                   alt="Plante de bureau Kitbitz"

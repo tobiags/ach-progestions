@@ -34,6 +34,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
   }, [mobileMenuOpen]);
 
   const navLinks = [
+    { label: "Simulateur", href: "#simulateur" },
     { label: "Services", href: "#services" },
     { label: "Méthode", href: "#methode" },
     { label: "À propos", href: "#a-propos" },
